@@ -3,33 +3,54 @@ import { Card, CardBody, CardText, CardImg, CardTitle } from 'reactstrap';
 
 class Dishdetails extends Component {
 
+    renderComments(comments) {
+        if (comments.length != 0) {
+            return comments.map(comment => {
+                return (
+                    <div>
+                        <li className="media">{comment.comment}</li>
+                        <li className="media">-- {comment.author}, {(new Date(comment.date)).toDateString()}</li>
+                    </div>
+                )
+            })
+        } else {
+            return (
+                <div></div>
+            )
+        }
+    }
+
+    renderDish(dish) {
+        if (dish != null) {
+            return (
+                <div>
+                    <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name} />
+                    <CardBody>
+                        <CardTitle><strong>{this.props.dish.name}</strong></CardTitle>
+                        <CardText>{this.props.dish.description}</CardText>
+                    </CardBody>
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
+    }
+
     render() {
 
-        const comment = this.props.dish.comments.map(comment => {
-            return (<div>
-                <li className="media">{comment.comment}</li>
-                <li className="media">-- {comment.author}, {(new Date(comment.date)).toDateString()}</li>
-            </div>
-            )
-        })
-
         return (
-            <div className="card-group">
-                <div key={this.props.dish.id} className="col-12 col-sm-12 col-md-5 mt-5">
-                    <Card className="ml-5">
-                        <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name} />
-                        <CardBody>
-                            <CardTitle><strong>{this.props.dish.name}</strong></CardTitle>
-                            <CardText>{this.props.dish.description}</CardText>
-                        </CardBody>
+            <div className="card-group row">
+                <div key={this.props.dish.id} className="col-12 col-sm-12 col-md-5 mt-5 m-1">
+                    <Card >
+                        {this.renderDish(this.props.dish)}
                     </Card>
                 </div>
-                <div key={this.props.dish.comments.id} className="col-12 col-sm-12 col-md-5 mt-5 ml-5" >
-                    <Card className="ml-5">
+                <div key={this.props.dish.comments.id} className="col-12 col-sm-12 col-md-5 mt-5 m-1" >
+                    <Card >
                         <CardBody>
                             <h4><strong>Comments</strong></h4>
                             <ul className="list-unstyled">
-                                {comment}
+                                {this.renderComments(this.props.dish.comments)}
                             </ul>
                         </CardBody>
                     </Card>
