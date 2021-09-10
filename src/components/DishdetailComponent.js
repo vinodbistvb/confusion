@@ -37,26 +37,31 @@ class Dishdetails extends Component {
     }
 
     render() {
-
-        return (
-            <div className="card-group row">
-                <div key={this.props.dish.id} className="col-12 col-sm-12 col-md-5 mt-5 m-1">
-                    <Card >
-                        {this.renderDish(this.props.dish)}
-                    </Card>
+        if (this.props.dish != null) {
+            return (
+                <div class="container">
+                    <div className="card-group row">
+                        <div key={this.props.dish.id} className="col-12 col-sm-12 col-md-5 mt-5 m-1">
+                            <Card >
+                                {this.renderDish(this.props.dish)}
+                            </Card>
+                        </div>
+                        <div key={this.props.dish.comments.id} className="col-12 col-sm-12 col-md-5 mt-5 m-1" >
+                            <Card >
+                                <CardBody>
+                                    <h4><strong>Comments</strong></h4>
+                                    <ul className="list-unstyled">
+                                        {this.renderComments(this.props.dish.comments)}
+                                    </ul>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
                 </div>
-                <div key={this.props.dish.comments.id} className="col-12 col-sm-12 col-md-5 mt-5 m-1" >
-                    <Card >
-                        <CardBody>
-                            <h4><strong>Comments</strong></h4>
-                            <ul className="list-unstyled">
-                                {this.renderComments(this.props.dish.comments)}
-                            </ul>
-                        </CardBody>
-                    </Card>
-                </div>
-            </div>
-        )
+            )
+        } else {
+            return <div></div>
+        }
     };
 }
 
