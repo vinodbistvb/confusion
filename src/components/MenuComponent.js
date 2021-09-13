@@ -26,14 +26,14 @@ const Menu = (props) => {
     return (
         <div className="container">
             <div className="row">
-                    <Breadcrumb>
-                        <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
-                    </Breadcrumb>
-            </div>
-            <div className="col-12">
-                <h3>Menu</h3>
-                <hr />
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem>Menu</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>Menu</h3>
+                    <hr />
+                </div>
             </div>
             <div className="row">
                 {menu}

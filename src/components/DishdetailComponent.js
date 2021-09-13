@@ -44,10 +44,10 @@ const Dishdetails = (props) => {
                         <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
                         <BreadcrumbItem>{props.dish.name}</BreadcrumbItem>
                     </Breadcrumb>
-                </div>
-                <div className="col-12">
-                    <h3>{props.dish.name}</h3>
-                    <hr />
+                    <div className="col-12">
+                        <h3>{props.dish.name}</h3>
+                        <hr />
+                    </div>
                 </div>
                 <div className="card-group row">
                     <div key={props.dish.id} className="col-12 col-sm-12 col-md-5 mt-5 m-1">
