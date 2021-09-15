@@ -2,8 +2,6 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
-
 const RenderLeader = (props) => {
     console.log(props.leader)
     const leader = props.leaders.map(leader => {
@@ -26,12 +24,7 @@ const RenderLeader = (props) => {
             {leader}
         </div>
     )
-
 }
-
-
-
-
 
 function About(props) {
 
