@@ -91,12 +91,12 @@ class Header extends Component {
                         <Form onSubmit={this.handleLogin}>
                             <FormGroup>
                                 <label htmlFor="username">Username</label>
-                                <Input typr="text" id="username" name="username"
+                                <Input type="text" id="username" name="username"
                                     innerRef={(input) => this.username = input} />
                             </FormGroup>
                             <FormGroup>
                                 <label htmlFor="password">Password</label>
-                                <Input typr="text" id="password" name="password"
+                                <Input type="text" id="password" name="password"
                                     innerRef={(input) => this.password = input} />
                             </FormGroup>
                             <FormGroup check>
